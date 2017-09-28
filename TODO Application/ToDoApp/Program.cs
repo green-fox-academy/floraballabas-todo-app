@@ -12,11 +12,11 @@ namespace ToDoApp
         static void Main(string[] args)
         {
             var start = new PrintUsage();
-            start.StartUp();
             //string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
             //System.IO.File.WriteAllLines(@"../../ListOfThings.txt", lines);
             string path = @"../../ListOfThings.txt";
             string[] content = File.ReadAllLines(path);
+
             if (args.Contains("-l"))
             {
                 if (content != null)
@@ -31,7 +31,8 @@ namespace ToDoApp
                     Console.WriteLine("No todos for today! :)");
                 }
             }
-            if (args.Contains("-a"))
+
+            else if (args.Contains("-a"))
             {
                 try
                 {
@@ -40,12 +41,13 @@ namespace ToDoApp
                         file.WriteLine(args[1]);
                     }
                 }
-                catch
+                catch (IndexOutOfRangeException)
                 {
                     Console.WriteLine("Unable to add: no task provided");
                 }
             }
-            if (args.Contains("-r"))
+
+            else if (args.Contains("-r"))
             {
                 try
                 {
@@ -66,6 +68,17 @@ namespace ToDoApp
                     Console.WriteLine("Unable to remove: index is not a number");
                 }
             }
+            
+            else if (args.Length > 0 && (!args.Contains("-l") || !args.Contains("-r") || !args.Contains("-c") || !args.Contains("-a")))
+            {
+                Console.WriteLine("Unsupported argument");
+                start.StartUp();
+            }
+            else
+            {
+                start.StartUp(); 
+            }
+
             Console.ReadLine();
         }
     }
