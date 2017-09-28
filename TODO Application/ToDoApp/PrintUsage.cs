@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ToDoApp
 {
@@ -11,7 +12,7 @@ namespace ToDoApp
         public void StartUp()
         {
             Console.WriteLine("Command Line ToDo application\n" +
-                                "=============================" );
+                                "=============================");
             Console.WriteLine();
             Console.WriteLine("Command line arguments:");
             Dictionary<string, string> commandList = new Dictionary<string, string>
@@ -24,6 +25,30 @@ namespace ToDoApp
             foreach (var command in commandList)
             {
                 Console.WriteLine(command);
+            }
+        }
+        public void TextWriter()
+        {
+            string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
+            System.IO.File.WriteAllLines(@"C:\Users\Flóra\greenfox\floraballabas-todo-app\TODO Application\ListOfThings.txt", lines);
+        }
+        public void GiveCommand()
+        {
+            string path = @"../../ListOfThings.txt";
+            Console.WriteLine("Please give the argument you want to give");
+            string comArg = Console.ReadLine();
+
+            if (comArg == "-l")
+            {
+                try
+                {
+                    string content = File.ReadAllText(path);
+                    Console.WriteLine(content);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Unable to read file: ListOfThings.txt");
+                }
             }
         }
     }
