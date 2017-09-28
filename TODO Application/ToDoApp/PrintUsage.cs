@@ -27,11 +27,11 @@ namespace ToDoApp
                 Console.WriteLine(command);
             }
         }
-        public void TextWriter()
-        {
-            string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
-            System.IO.File.WriteAllLines(@"C:\Users\Flóra\greenfox\floraballabas-todo-app\TODO Application\ListOfThings.txt", lines);
-        }
+        //public void TextWriter()
+        //{
+        //    string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
+        //    System.IO.File.WriteAllLines(@"C:\Users\Flóra\greenfox\floraballabas-todo-app\TODO Application\ListOfThings.txt", lines);
+        //}
         //public void GiveCommand()
         //{
             

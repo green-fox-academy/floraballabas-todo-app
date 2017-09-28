@@ -16,18 +16,27 @@ namespace ToDoApp
             //string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
             //System.IO.File.WriteAllLines(@"../../ListOfThings.txt", lines);
             string path = @"../../ListOfThings.txt";
+            string[] content = File.ReadAllLines(path);
             if (args.Contains("-l"))
             {
-                string content = File.ReadAllText(path);
                 if (content != null)
                 {
-                    Console.WriteLine(content);
+                    for (int i = 0; i < content.Count(); i++)
+                    {
+                        Console.WriteLine(@"{0}. - {1}", i + 1, content[i]);
+                    }
                 }
                 else
                 {
                     Console.WriteLine("No todos for today! :)");
                 }
-                
+            }
+            if (args.Contains("-a"))
+            {
+                using (StreamWriter file = File.AppendText(@"../../ListOfThings.txt"))
+                {
+                    file.WriteLine(args[1]);
+                }
             }
             Console.ReadLine();
         }
