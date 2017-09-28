@@ -33,9 +33,16 @@ namespace ToDoApp
             }
             if (args.Contains("-a"))
             {
-                using (StreamWriter file = File.AppendText(@"../../ListOfThings.txt"))
+                try
                 {
-                    file.WriteLine(args[1]);
+                    using (StreamWriter file = File.AppendText(@"../../ListOfThings.txt"))
+                    {
+                        file.WriteLine(args[1]);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Unable to add: no task provided");
                 }
             }
             Console.ReadLine();
