@@ -15,7 +15,12 @@ namespace ToDoApp
             start.StartUp();
             //string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
             //System.IO.File.WriteAllLines(@"../../ListOfThings.txt", lines);
-            start.GiveCommand();
+            string path = @"../../ListOfThings.txt";
+            if (args.Contains("-l"))
+            {
+                string content = File.ReadAllText(path);
+                Console.WriteLine(content);
+            }
             Console.ReadLine();
         }
     }

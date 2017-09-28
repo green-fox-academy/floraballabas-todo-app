@@ -32,24 +32,12 @@ namespace ToDoApp
             string[] lines = { "1 - Walk the Dog", "2 - Buy Milk", "3 - Do Homework" };
             System.IO.File.WriteAllLines(@"C:\Users\Flóra\greenfox\floraballabas-todo-app\TODO Application\ListOfThings.txt", lines);
         }
-        public void GiveCommand()
-        {
-            string path = @"../../ListOfThings.txt";
-            Console.WriteLine("Please give the argument you want to give");
-            string comArg = Console.ReadLine();
-
-            if (comArg == "-l")
-            {
-                try
-                {
-                    string content = File.ReadAllText(path);
-                    Console.WriteLine(content);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Unable to read file: ListOfThings.txt");
-                }
-            }
-        }
+        //public void GiveCommand()
+        //{
+            
+        //    string path = @"../../ListOfThings.txt";
+        //    string content = File.ReadAllText(path);
+        //    Console.WriteLine(content);
+        //}
     }
 }
