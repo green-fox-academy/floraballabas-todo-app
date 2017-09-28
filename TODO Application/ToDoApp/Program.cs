@@ -19,7 +19,15 @@ namespace ToDoApp
             if (args.Contains("-l"))
             {
                 string content = File.ReadAllText(path);
-                Console.WriteLine(content);
+                if (content != null)
+                {
+                    Console.WriteLine(content);
+                }
+                else
+                {
+                    Console.WriteLine("No todos for today! :)");
+                }
+                
             }
             Console.ReadLine();
         }
