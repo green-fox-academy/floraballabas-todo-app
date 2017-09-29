@@ -1,4 +1,3 @@
-Walk the dog
-Gergo rules
-Furkesz is here
-Balazs gives me chocolate
+[X] Walk the dog
+[ ]Make tea
+[ ]Prepare for demo
