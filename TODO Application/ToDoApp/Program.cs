@@ -38,7 +38,7 @@ namespace ToDoApp
                 {
                     using (StreamWriter file = File.AppendText(@"../../ListOfThings.txt"))
                     {
-                        file.WriteLine("[ ]"+args[1]);
+                        file.WriteLine("[ ] "+args[1]);
                     }
                 }
                 catch (IndexOutOfRangeException)
@@ -72,11 +72,10 @@ namespace ToDoApp
             {
                 try
                 {
-                    var lines = File.ReadAllLines(@"../../ListOfThings.txt");
-                    int line = int.Parse(args[1]) - 1;
-                    var temp = lines[line];
-                    lines[line] = "[X] " + temp;
-                    File.WriteAllLines(@"../../ListOfThings.txt", lines);
+                    var file = new List<string>(File.ReadAllLines(@"../../ListOfThings.txt"));
+                    string temp = file[int.Parse(args[1]) - 1].Substring(4);
+                    file[Convert.ToInt32(args[1]) - 1] = "[X] " + temp;
+                    File.WriteAllLines(@"../../ListOfThings.txt", file);
                 }
                 catch (IndexOutOfRangeException)
                 {

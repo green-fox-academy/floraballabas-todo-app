@@ -1,3 +1,3 @@
 [X] Walk the dog
 [ ]Make tea
-[ ]Prepare for demo
+[X] repare for demo
